@@ -1,7 +1,6 @@
 package dc
 
 import (
-	//. "github.com/duolabmeng6/goefun/core"
 	. "github.com/lxinyucn/go/c"
 )
 
