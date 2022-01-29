@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 	"unicode"
@@ -466,6 +467,19 @@ func C目录是否存在(欲判断的目录名 string) bool {
 		return false
 	}
 	return s.IsDir()
+}
+
+//调用格式： 〈文本型〉 取运行目录 （） - 系统核心支持库->环境存取
+//英文名称：GetRunPath
+//取当前被执行的易程序文件所处的目录。本命令为初级命令。
+//
+//操作系统需求： Windows
+func C取运行目录() string {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		C日记(err)
+	}
+	return strings.Replace(dir, "\\", "/", -1)
 }
 
 //本命令结束当前易程序的运行。
